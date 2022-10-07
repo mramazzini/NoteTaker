@@ -8,9 +8,9 @@ api.get('/', (req, res) => {
   });
 
 api.get('/notes', (req, res) => {
+    
     readFromFile('./Develop/db/db.json').then((data) => res.json(JSON.parse(data)));
 });
-
 
 api.post('/notes', (req, res) => {
 
