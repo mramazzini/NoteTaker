@@ -1,11 +1,10 @@
 const express = require('express');
 
-// const tipsRouter = require('./tips');
-// const feedbackRouter = require('./feedback');
+const apiRouter = require('./api');
 
- const app = express();
 
-// app.use('/tips', tipsRouter);
-// app.use('/feedback', feedbackRouter);
+const app = express();
+
+app.use('/api', apiRouter);
 
 module.exports = app;
