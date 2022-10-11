@@ -2,10 +2,7 @@ const api = require('express').Router();
 const { readFromFile, readAndAppend, writeToFile,  } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
-api.get('/', (req, res) => {
-    console.info(`${req.method} request received for api`);
-   
-  });
+
 
 api.get('/notes', (req, res) => {
     
