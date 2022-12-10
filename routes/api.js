@@ -6,13 +6,13 @@ const uuid = require('../helpers/uuid');
 
 api.get('/notes', (req, res) => {
     
-    readFromFile('./Develop/db/db.json').then((data) => res.json(JSON.parse(data)));
+    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
 api.delete('/notes/:id', (req,res) => {
     const requestedId = req.params.id;
     
-    const data = require('../Develop/db/db.json');
+    const data = require('../db/db.json');
 
     for (let i = 0; i < data.length; i++) {
         const currentNote = data[i];
@@ -21,7 +21,7 @@ api.delete('/notes/:id', (req,res) => {
           console.log(data);
           
           
-          writeToFile('./Develop/db/db.json', data);
+          writeToFile('./db/db.json', data);
           res.json(JSON.parse(data));
           return;
         }
@@ -41,7 +41,7 @@ api.post('/notes', (req, res) => {
         id: uuid(),
       };
   
-      readAndAppend(newNote, './Develop/db/db.json');
+      readAndAppend(newNote, './db/db.json');
   
       const response = {
         status: 'success',
